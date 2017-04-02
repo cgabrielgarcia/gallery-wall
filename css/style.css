@@ -1,0 +1,350 @@
+/* Styles for Gallery Wall Designer */
+
+
+/* Global Styles */
+
+* {
+	overflow: auto;
+	box-sizing: border-box;
+}
+
+body {
+	color: #111;
+	margin: 0;
+	font-family: 'Nimbus Sans', sans-serif;
+	font-weight: 200;
+	background: url('images/debutlight_@2X.png');
+	background-size: 200px 200px;
+}
+
+section {
+	max-width: 720px;
+	margin: 30px auto;
+	padding: 0 20px;
+}
+
+section.full-width {
+	max-width: 100%;
+	padding: 0;
+}
+
+.placeholder-block {
+	background-color: #EFEFEF;
+}
+
+.page1 .placeholder-block {
+	height: 400px;
+}
+
+header {
+	text-align: center;
+	background-color: #FFF;
+	padding-bottom: 10px;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.25);
+}
+
+.page1 header {
+	box-shadow: none;
+}
+
+nav {
+	height: 50px;
+	background-color: #111;
+	margin-bottom: 30px;
+}
+
+section.full-width-img {
+	background-color: #EFEFEF;
+}
+
+section.full-width-img:first-child {
+	margin-top: 0;
+}
+
+section.full-width-img img {
+	display: block;
+	width: 100%;
+	height: auto;
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+.defined-holder {
+	border: 3px solid #EFEFEF;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.tab-style {
+	display: inline-block;
+	text-align: center;
+	font-size: 14px;
+	font-weight: 300;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	margin-top: 0;
+	color: #FFF;
+	background-color: #111;
+	padding: 15px 30px 10px;
+}
+
+.heading-text-block {
+	text-align: center;
+}
+
+.heading-text-block h1 {
+	font-style: italic;
+	font-size: 42px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+h1 {
+	font-family: 'Adobe Caslon Pro', serif;
+	font-weight: 400;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+header h1 {
+	text-transform: lowercase;
+	font-size: 36px;
+}
+
+header h2 {
+	text-transform: uppercase;
+	font-weight: 300;
+	font-size: 14px;
+	letter-spacing: 1px;
+}
+
+ul, ol {
+	padding-left: 0;
+}
+
+p {
+	line-height: 140%;
+}
+
+p:last-of-type {
+	margin-bottom: 30px;
+}
+
+a {
+	text-decoration: none;
+}
+
+.button {
+	display: inline-block;
+	background: #9A803D;
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.25);
+	padding: 15px 40px 10px;
+	color: #FFF;
+	text-transform: uppercase;
+	font-weight: 600;
+}
+
+footer {
+	height: 140px;
+	background-color: #111;
+	margin-top: 30px;
+}
+
+
+/* All Steps */
+
+.step h1 {
+	font-family: 'Nimbus Sans', sans-serif;
+	font-weight: 300;
+}
+
+.step ul {
+	text-align: center;
+}
+
+.step li {
+	display: inline-block;
+}
+
+.selected {
+	outline: 3px solid #9A803D;
+}
+
+/* Step 1: Choose a background */
+
+#step-1 li {
+	width: 200px;
+	height: 150px;
+	margin: 10px;
+}
+
+#bg-gray {
+	background: #888;
+}
+
+#bg-cream {
+	background: #f8f4ec;
+}
+
+.bg-img {
+	background: url('images/living-room-wall-pozitivo-creativemarket.jpg') no-repeat;
+	background-position: top center;
+	background-size: auto 150px;
+}
+
+/* Step 2: Choose Arrangement */
+
+#step-2 li {
+	width: 300px;
+	height: 300px;
+	margin: 10px;
+	padding: 20px;
+}
+
+#step-2 img {
+	display: block;
+	width: 100%;
+}
+
+#trio-portrait {
+	margin-top: 15%;
+}
+
+#trio-portrait li {
+	width: 108px;
+	height: 135px;
+}
+
+#quad-square {
+	width: 320px;
+	margin: 30px auto 0;
+}
+
+#quad-square li {
+	width: 108px;
+	height: 108px;
+}
+
+/* Step 3: Choose a Frame Color */
+
+#step-3 li {
+	width: 140px;
+	height: 140px;
+	margin: 10px;
+}
+
+#black-frame {
+	background-color: #111;
+}
+
+#white-frame {
+	background-color: #FFF;
+}
+
+#gold-frame {
+	background-color: #d6b55b; 
+}
+
+/* Preview Wall */
+
+#preview-wall {
+	height: 540px;
+}
+
+.page3 #preview-wall /* temp bg until js */ {
+	background-color: #EFEFEF;
+	background: url('images/living-room-wall-pozitivo-creativemarket.jpg') no-repeat;
+	background-position: top center;
+	background-size: auto 540px;
+}
+
+.page3 #preview-wall {
+	text-align: center;
+	margin-bottom: 10px
+}
+
+.print-slot-frame-holder {
+	text-align: center;
+}
+
+.page3 .print-slot-frame-holder /* temp bg until js */ {
+	margin-top: 15%;
+}
+
+.print-slot-frame {
+	display: inline-block;
+	margin: 10px;
+	height: 135px;
+	width: 108px;
+	background: url('images/greyfloral_@2X.png');
+	background-size: 100px 100px;
+	border-width: 6px;
+	border-style: solid;
+}
+
+/* My Favorites */
+
+#my-favorites-holder {
+	text-align: center;
+}
+
+#my-favorites {
+	text-align: center;
+	height: 240px;
+	padding: 10px;
+	margin-top: 0;
+}
+
+#my-favorites li {
+	display: inline-block;
+	width: 108px;
+	height: 135px;
+	margin: 10px;
+	border: 3px solid #FFF;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.25);
+}
+
+
+#my-favorites img {
+	display: inline-block;
+	width: 100%;
+}
+
+.small-helper {
+	width: 108px;
+	height: 135px;
+	background-size: 108px auto;
+}
+
+.small-helper.hidden {
+	display: none;
+}
+
+/* Prints Catalog */
+
+#prints-catalog-holder {
+	text-align: center;
+}
+
+#prints-catalog {
+	height: 400px;
+	text-align: center;
+}
+
+#prints-catalog img {
+	display: inline-block;
+	width: 80%;
+	margin: 10px;
+	border: 8px solid #FFF;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.25);
+}
+
+
+
+
+
+
+
+
+
+
