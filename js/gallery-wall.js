@@ -38,10 +38,10 @@ $(document).ready(function() {
 		$('.appended').remove();
 
 		if (selectedArrangeNum === 1) {
-			$('#preview-wall').append('<ul class="print-slot-frame-holder appended" id="trio-portrait"><li class="print-slot-frame"></li><li class="print-slot-frame"></li><li class="print-slot-frame"></li></ul>');
+			$('#preview-wall').append('<ul class="print-slot-frame-holder appended" id="trio-portrait"><li class="print-slot-frame drop"></li><li class="print-slot-frame drop"></li><li class="print-slot-frame drop"></li></ul>');
 			selectedOrientation = 'portrait';
 		} else if (selectedArrangeNum === 2) {
-			$('#preview-wall').append('<ul class="print-slot-frame-holder appended" id="quad-square"><li class="print-slot-frame"></li><li class="print-slot-frame"></li><li class="print-slot-frame"></li><li class="print-slot-frame"></li></ul>');
+			$('#preview-wall').append('<ul class="print-slot-frame-holder appended" id="quad-square"><li class="print-slot-frame drop"></li><li class="print-slot-frame drop"></li><li class="print-slot-frame drop"></li><li class="print-slot-frame drop"></li></ul>');
 			selectedOrientation = 'square';
 		}
 
@@ -82,7 +82,7 @@ $(document).ready(function() {
 
 	function pullEtsyImgs() {
 
-		// var api_key = ;
+		var api_key = '';
 		var etsyUrl = 'https://openapi.etsy.com/v2/shops/carlagabrielgarcia/listings/active.js?&includes=Images:1&api_key=' + api_key;
 
 		return $.ajax({
@@ -139,24 +139,24 @@ $(document).ready(function() {
         	var etsyImgUrl = item.Images[0].url_570xN;
         	$('<div class="img-holder"></div>').append($('<div class="etsy-img"></div>').css({ 'background-image' : 'url(\'' + etsyImgUrl + '\')', 'background-size' : '100% auto', 'background-repeat' : 'no-repeat', 'class' : 'drag print-img' })).append($('<div class="overlay"><p>Add to Favorites</p></div>')).appendTo('#prints-catalog');
         });
+
+        $('.overlay').click(addToFavorites);
+
+        makeDroppable();
 	}
 
 
-
-	// Drag and drop prints
-
-	// Populate My Favorites with clicked Prints -- DOESN'T WORK UNLESS I TYPE INTO CONSOLE
-	$('.overlay').click(addToFavorites);
-
+	// Populate My Favorites with clicked Prints
+	
 	function addToFavorites() {
 		var etsyImgBg = $(this).siblings().css('background-image');
-		$('<div class="favorite-img drag"></div>').css({ 'background-image' : etsyImgBg, 'background-size' : '100% auto', 'background-repeat' : 'no-repeat', 'class' : 'drag print-img' }).appendTo($('#my-favorites'));
-	}
+		var draggablePrint = $('<div class="favorite-img drag"></div>').css({ 'background-image' : etsyImgBg, 'background-size' : '100% auto', 'background-repeat' : 'no-repeat', 'class' : 'drag print-img' });
+	
+		draggablePrint.appendTo($('#my-favorites'));
 
+		// Make Favorite prints draggable
 
-	// Make Favorite prints draggable -- DOESN'T WORK UNLESS I TYPE INTO CONSOLE
-
-	$('.drag').draggable({
+		$(draggablePrint).draggable({
 		containment: 'document',
 			cursor: 'move',
 			helper: function() {
@@ -167,22 +167,32 @@ $(document).ready(function() {
 				top: 5,
 				left: 5
 			}
-	});
+		});
+	}
+	
 
 	// Make frames accept dragged prints
 
-	$('.drop').droppable({
-		drop: function handleDrop(event, ui) {
-			var helperBg = $('.small-helper.ui-draggable-dragging').css('background-image');
-			$(this).css({ 'background-image': helperBg, 'background-size' : '100% auto', 'background-repeat' : 'no-repeat' });
-		}
-	});
-	
-	// Remove dropped print on click
+	function makeDroppable() {
 
-	$('.print-slot-frame.drop').click(function(event, ui) {
-		$(this).css({ 'background-image': 'url(css/images/greyfloral_@2X.png)', 'background-repeat' : 'repeat' });
-	})
+		$('.drop').droppable({
+			drop: function handleDrop(event, ui) {
+				var helperBg = $('.small-helper.ui-draggable-dragging').css('background-image');
+				$(this).css({ 'background-image': helperBg, 'background-size' : '100% auto', 'background-repeat' : 'no-repeat' });
+			}
+		});
+
+
+		// Remove dropped print on click
+
+		$('.print-slot-frame.drop').click(function(event, ui) {
+			$(this).css({ 'background-image': 'url(css/images/greyfloral_@2X.png)', 'background-repeat' : 'repeat' });
+		});
+	}
+
+
+
+
 
 
 });
